@@ -165,6 +165,43 @@
     }
     .impact-box h2 { color: white; border-bottom-color: #1e3a5f; }
     .impact-box p { color: #cbd5e1; }
+    .inference-box {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 24px;
+      margin-top: 20px;
+    }
+    .inference-box textarea {
+      width: 100%;
+      padding: 12px;
+      font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 15px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      resize: vertical;
+      color: var(--text);
+      background: var(--bg);
+    }
+    .inference-box button {
+      margin-top: 12px;
+      padding: 10px 24px;
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 15px;
+      font-family: 'IBM Plex Sans', sans-serif;
+      cursor: pointer;
+    }
+    .inference-box button:hover { background: #2563eb; }
+    .result-box {
+      margin-top: 16px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px;
+    }
     footer {
       text-align: center;
       padding: 24px;
@@ -183,6 +220,7 @@
       <a href="#data">Data Sources</a>
       <a href="#pipeline">Method</a>
       <a href="#findings">Findings</a>
+      <a href="#inference">Try It Live</a>
       <a href="#impact">Broader Impacts</a>
     </div>
   </nav>
@@ -239,6 +277,7 @@
         <li>11,022 total reviews; 656 of those were 1 or 2 stars and used for complaint analysis</li>
         <li>Variables: star rating, review text, review date, business name, author</li>
         <li>Engineered features: review length and VADER sentiment score</li>
+        <li>Dataset stored in Google Cloud Storage: gs://auto-repair-reviews/reviews_clean.csv</li>
       </ul>
     </section>
 
@@ -251,6 +290,7 @@
         <li>Ran a correlation analysis across all 11,022 reviews (rating vs. sentiment: r = 0.57)</li>
         <li>Applied LDA topic modeling to the 656 negative reviews to find recurring complaint themes</li>
         <li>Extracted top keywords and bigrams to validate the topic clusters</li>
+        <li>Deployed ML inference service on Google Cloud Run using Docker</li>
       </ul>
     </section>
 
@@ -286,6 +326,16 @@
           <canvas id="sentimentChart"></canvas>
           <p class="chart-note">Lower = more negative emotional language. Hover for exact scores.</p>
         </div>
+      </div>
+    </section>
+
+    <section id="inference">
+      <h2>Try It Live</h2>
+      <p>Type any auto repair review below and the ML model will analyze the sentiment and predict the complaint category.</p>
+      <div class="inference-box">
+        <textarea id="reviewInput" rows="4" placeholder="e.g. They charged me $400 more than the original quote with no explanation..."></textarea>
+        <button onclick="analyzeReview()">Analyze Review</button>
+        <div id="result"></div>
       </div>
     </section>
 
@@ -350,6 +400,28 @@
       data: { labels: topics, datasets: [{ data: sentiments, backgroundColor: barColors, borderColor: borderColors, borderWidth: 1, borderRadius: 5 }] },
       options: { ...sharedOptions, plugins: { ...sharedOptions.plugins, tooltip: { callbacks: { label: ctx => ` ${ctx.parsed.y.toFixed(3)}` } } }, scales: { ...sharedOptions.scales, y: { ...sharedOptions.scales.y, title: { display: true, text: 'VADER Score' }, ticks: { callback: v => v.toFixed(2) } } } }
     });
+
+    async function analyzeReview() {
+      const review = document.getElementById('reviewInput').value;
+      if (!review.trim()) return;
+      document.getElementById('result').innerHTML = '<p style="color:#64748b;margin-top:12px">Analyzing...</p>';
+      try {
+        const response = await fetch('https://auto-repair-inference-590605587424.us-west2.run.app/predict', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({review: review})
+        });
+        const data = await response.json();
+        const color = data.sentiment_label === 'positive' ? '#16a34a' : '#dc2626';
+        document.getElementById('result').innerHTML = `
+          <div class="result-box">
+            <p><strong>Sentiment Score:</strong> <span style="color:${color}">${data.sentiment_score.toFixed(3)} (${data.sentiment_label})</span></p>
+            <p><strong>Predicted Category:</strong> ${data.predicted_category}</p>
+          </div>`;
+      } catch(e) {
+        document.getElementById('result').innerHTML = '<p style="color:#dc2626;margin-top:12px">Error connecting to inference service.</p>';
+      }
+    }
   </script>
 
 </body>
