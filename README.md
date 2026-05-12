@@ -95,20 +95,26 @@ Google Cloud Storage (datasets)
   ↓
 ML Inference Service (Cloud Run, Flask + Docker)
 ```
+Characteristiques: 
+- Stateless inference service
+- Auto-scaling via Cloud Run
+- Real-time predictions from user input
+- Cloud-hosted datasets for dynamic access
 
 
 
 ## Inference Service
-Location: app.py + Dockerfile
+
+- Location: app.py + Dockerfile
 The inference service is a Flask API deployed on Google Cloud Run.
 
-Input: POST request with raw review text
-Output: predicted complaint topic (Pricing & Labor, Communication Issues, 
-Brake & Repair Quality, or Oil Change Problems) + VADER sentiment score
+- Input: POST request with raw review text
+- Output: predicted complaint topic (Pricing & Labor, Communication Issues, 
+          Brake & Repair Quality, or Oil Change Problems) + VADER sentiment score
 
-Endpoints:
-POST /predict — takes review text, returns topic and sentiment
-GET /health — health check endpoint
+- Endpoints:
+  POST /predict — takes review text, returns topic and sentiment
+  GET /health — health check endpoint
 
 The Docker container loads the trained LDA model and VADER sentiment analyzer 
 at startup. The website calls this service to classify new reviews in real time.
@@ -117,10 +123,10 @@ at startup. The website calls this service to classify new reviews in real time.
 Storage: Google Cloud Storage bucket — auto-repair-dataset-cs163
 
 Files stored:
-reviews_clean.csv — 11,022 cleaned Yelp reviews
+reviews_clean.csv: 11,022 cleaned Yelp reviews
 https://storage.googleapis.com/auto-repair-dataset-cs163/reviews_clean.csv
 
-negative_reviews_with_topics.csv — 656 negative reviews with LDA topic labels
+negative_reviews_with_topics.csv: 656 negative reviews with LDA topic labels
 https://storage.googleapis.com/auto-repair-dataset-cs163/negative_reviews_with_topics.csv
 
 How it is consumed: the project website reads these files from GCS at page load 
