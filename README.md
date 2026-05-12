@@ -41,19 +41,22 @@ Lower rated reviews are longer (r = -0.22), confirming dissatisfied customers wr
 
 ## Project Structure
 
-├── 1_data_collection.ipynb    # Zembra API pipeline to collect Yelp reviews
-├── 2_eda.ipynb                # Data loading, cleaning, feature engineering, EDA
-├── 3_nlp_analysis.ipynb       # VADER, LDA topic modeling, keyword analysis
-├── app.py                     # ML inference service
-├── main.py                    # Main application entry point
-├── app.yaml                   # Deployment configuration
-├── Dockerfile                 # Container setup
-├── requirements.txt           # Python dependencies
-├── index.html                 # Project website
-├── reviews_clean.csv          # Cleaned reviews dataset
-├── negative_reviews_with_topics.csv  # Negative reviews with LDA topic labels
-├── Final Proposal.pdf         # Original project proposal
-└── Preliminary Results.pdf    # Preliminary results report
+```
+1_data_collection.ipynb       Zembra API pipeline to collect Yelp reviews
+2_eda.ipynb                   Data loading, cleaning, feature engineering, EDA
+3_nlp_analysis.ipynb          VADER, LDA topic modeling, keyword analysis
+app.py                        ML inference service
+main.py                       Main application entry point
+app.yaml                      Deployment configuration
+Dockerfile                    Container setup
+requirements.txt              Python dependencies
+index.html                    Project website
+reviews_clean.csv             Cleaned reviews dataset
+negative_reviews_with_topics.csv    Negative reviews with LDA topic labels
+Final Proposal.pdf            Original project proposal
+Preliminary Results.pdf       Preliminary results report
+```   Preliminary results report
+""
 
 
 ## Pipeline
