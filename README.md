@@ -46,6 +46,7 @@ Lower-rated reviews are longer
 
 ## Project Structure
 
+```
 1_data_collection.ipynb          # Zembra API pipeline
 2_eda.ipynb                     # Data cleaning, feature engineering, EDA
 3_nlp_analysis.ipynb            # NLP, LDA topic modeling, keyword analysis
@@ -62,6 +63,7 @@ negative_reviews_with_topics.csv# Labeled negative reviews (656)
 
 Final Proposal.pdf
 Preliminary Results.pdf
+```
 
 
 ## Pipeline
