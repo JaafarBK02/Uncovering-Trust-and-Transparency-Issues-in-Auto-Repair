@@ -3,16 +3,16 @@
 ## What is this repo?
 This project uses NLP and machine learning to analyze 11,022 Yelp reviews from 
 32 Bay Area auto repair shops. The goal is to identify recurring patterns of 
-overcharging, poor communication, and dishonest repairs — and validate that these 
+overcharging, poor communication, and dishonest repairs, and validate that these 
 frustrations are not isolated experiences but a systemic, measurable industry problem.
 
 This research was conducted as part of CS163 at San Jose State University and serves 
-as the data foundation for Whipify, a transparency tool for auto repair selected as 
-a finalist in the Silicon Valley Innovation Challenge (200+ startups).
+as the data foundation for our personal project called Whipify, a transparency tool for auto repair selected as 
+a finalist in the Silicon Valley Innovation Challenge.
 
 Project Website: https://auto-repair-cs163.wl.r.appspot.com/
 ML Inference API: https://auto-repair-inference-590605587424.us-west2.run.app/
-Whipify: https://whipify.it.com
+additional link for curious people: Whipify: https://whipify.it.com
 
 ## Research Questions & Hypotheses
 1. Pricing transparency is a primary driver of negative sentiment
@@ -20,13 +20,19 @@ Whipify: https://whipify.it.com
 3. A small number of complaint categories dominate negative feedback
 
 ## Key Findings
-Pricing & Labor is the #1 complaint category (189 reviews, sentiment: -0.242)
-Communication Issues is the 2nd largest category (166 reviews, sentiment: -0.206)
-Brake & Repair Quality accounts for 164 reviews (sentiment: -0.214)
-Oil Change Problems accounts for 137 reviews (sentiment: -0.215)
-VADER sentiment correlates strongly with star ratings (r = 0.57)
-Lower rated reviews are longer (r = -0.22), confirming dissatisfied customers 
-write more detailed complaints
+Pricing & Labor is the #1 complaint category
+- 189 reviews | Sentiment: -0.242
+Communication Issues is the 2nd largest category
+- 166 reviews | Sentiment: -0.206
+Brake & Repair Quality
+- 164 reviews | Sentiment: -0.214
+Oil Change Problems
+- 137 reviews | Sentiment: -0.215
+VADER sentiment strongly correlates with star ratings
+- r = 0.57
+Lower-rated reviews are longer
+- r = -0.22
+- Dissatisfied customers tend to leave more detailed feedback
 
 ## Dataset
 Source: Yelp reviews collected via Zembra API
