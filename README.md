@@ -86,23 +86,17 @@ sentiment per topic visualizations. Saves final labeled dataset to Drive.
 
 ## System Design
 
-The system has 3 connected components:
+```
+User
+  ↓
+Website (Google AppEngine)
+  ↓
+Google Cloud Storage (datasets)
+  ↓
+ML Inference Service (Cloud Run, Flask + Docker)
+```
 
-**Website** hosted on Google AppEngine
-Reads dataset from Google Cloud Storage at page load to render 
-analysis results and visualizations.
 
-**Google Cloud Storage**
-Stores reviews_clean.csv (11,022 reviews) and 
-negative_reviews_with_topics.csv (656 labeled reviews).
-Both files are consumed by the website and inference service at runtime.
-
-**ML Inference Service** hosted on Google Cloud Run (Dockerized Flask API)
-Loads LDA model and VADER at startup.
-Input: POST /predict with raw review text
-Output: predicted complaint topic + VADER sentiment score
-GET /health for health checks
-Scales automatically with traffic.
 
 ## Inference Service
 Location: app.py + Dockerfile
