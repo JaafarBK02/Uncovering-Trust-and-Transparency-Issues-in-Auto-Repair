@@ -46,19 +46,22 @@ Lower-rated reviews are longer
 
 ## Project Structure
 
-1_data_collection.ipynb          Zembra API pipeline to collect Yelp reviews
-2_eda.ipynb                      Data loading, cleaning, feature engineering, EDA
-3_nlp_analysis.ipynb             VADER, LDA topic modeling, keyword analysis
-app.py                           ML inference service (Flask API, input/output below)
-main.py                          Main application entry point
-app.yaml                         Google AppEngine deployment configuration
-Dockerfile                       Container setup for Cloud Run inference service
-requirements.txt                 Python dependencies
-index.html                       Project website (hosted on AppEngine)
-reviews_clean.csv                Cleaned reviews dataset (11,022 reviews)
-negative_reviews_with_topics.csv Negative reviews with LDA topic labels
-Final Proposal.pdf               Original project proposal
-Preliminary Results.pdf          Preliminary results report
+1_data_collection.ipynb          # Zembra API pipeline
+2_eda.ipynb                     # Data cleaning, feature engineering, EDA
+3_nlp_analysis.ipynb            # NLP, LDA topic modeling, keyword analysis
+
+app.py                          # Flask inference API
+main.py                         # App entry point
+app.yaml                        # AppEngine deployment config
+Dockerfile                      # Cloud Run container setup
+requirements.txt                # Dependencies
+
+index.html                      # Project website
+reviews_clean.csv               # Clean dataset (11,022 reviews)
+negative_reviews_with_topics.csv# Labeled negative reviews (656)
+
+Final Proposal.pdf
+Preliminary Results.pdf
 
 
 ## Pipeline
