@@ -113,25 +113,20 @@ The inference service is a Flask API deployed on Google Cloud Run.
           Brake & Repair Quality, or Oil Change Problems) + VADER sentiment score
 
 - Endpoints:
-  POST /predict — takes review text, returns topic and sentiment
-  GET /health — health check endpoint
+  POST /predict: takes review text, returns topic and sentiment
+  GET /health: health check endpoint
 
 The Docker container loads the trained LDA model and VADER sentiment analyzer 
 at startup. The website calls this service to classify new reviews in real time.
 
 ## Data Stored in the Cloud
-Storage: Google Cloud Storage bucket — auto-repair-dataset-cs163
+- Storage Location: Google Cloud Storage
+- Bucket: auto-repair-dataset-cs163
 
-Files stored:
-reviews_clean.csv: 11,022 cleaned Yelp reviews
-https://storage.googleapis.com/auto-repair-dataset-cs163/reviews_clean.csv
-
-negative_reviews_with_topics.csv: 656 negative reviews with LDA topic labels
-https://storage.googleapis.com/auto-repair-dataset-cs163/negative_reviews_with_topics.csv
-
-How it is consumed: the project website reads these files from GCS at page load 
-to render the analysis results and visualizations. The inference service also 
-reads the data at startup to initialize the model.
+- Available files:
+  1. reviews_clean.csv: 11,022 cleaned Yelp reviews --> https://storage.googleapis.com/auto-repair-dataset-cs163/reviews_clean.csv
+  2. negative_reviews_with_topics.csv: 656 negative reviews with LDA topic labels --> https://storage.googleapis.com/auto-repair-dataset-cs163/negative_reviews_with_topics.csv
+ 
 
 ## How to Run
 1. Open each notebook in Google Colab
