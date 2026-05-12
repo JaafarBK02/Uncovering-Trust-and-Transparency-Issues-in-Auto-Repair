@@ -10,9 +10,9 @@ This research was conducted as part of CS163 at San Jose State University and se
 as the data foundation for our personal project called Whipify, a transparency tool for auto repair selected as 
 a finalist in the Silicon Valley Innovation Challenge.
 
-Project Website: https://auto-repair-cs163.wl.r.appspot.com/
-ML Inference API: https://auto-repair-inference-590605587424.us-west2.run.app/
-additional link for curious people: Whipify: https://whipify.it.com
+- Project Website: https://auto-repair-cs163.wl.r.appspot.com/
+- ML Inference API: https://auto-repair-inference-590605587424.us-west2.run.app/
+- additional link for curious people: Whipify: https://whipify.it.com
 
 ## Research Questions & Hypotheses
 1. Pricing transparency is a primary driver of negative sentiment
