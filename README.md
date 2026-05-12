@@ -122,10 +122,17 @@ at startup. The website calls this service to classify new reviews in real time.
 ## Data Stored in the Cloud
 - Storage Location: Google Cloud Storage
 - Bucket: auto-repair-dataset-cs163
+  
+-  reviews_clean.csv: 11,022 cleaned Yelp reviews
+  link: https://storage.googleapis.com/auto-repair-dataset-cs163/reviews_clean.csv
+- negative_reviews_with_topics.csv: 656 negative reviews with LDA topic labels
+  link: https://storage.googleapis.com/auto-repair-dataset-cs163/negative_reviews_with_topics.csv
 
-- Available files:
-  1. reviews_clean.csv: 11,022 cleaned Yelp reviews --> https://storage.googleapis.com/auto-repair-dataset-cs163/reviews_clean.csv
-  2. negative_reviews_with_topics.csv: 656 negative reviews with LDA topic labels --> https://storage.googleapis.com/auto-repair-dataset-cs163/negative_reviews_with_topics.csv
+Both datasets are stored in Google Cloud Storage and accessed dynamically by the system:
+- The project website loads the data at runtime to generate visualizations and display analysis results
+- The ML inference service reads the data at startup to initialize models and support real-time predictions
+
+This setup ensures centralized storage, scalability, and consistent data access across all components of the application.
  
 
 ## How to Run
@@ -143,15 +150,15 @@ at startup. The website calls this service to classify new reviews in real time.
 | Keyword Frequency Analysis | Validate LDA topics with raw word counts |
 
 ## Tech Stack
-Python, Pandas, Matplotlib, Seaborn
-VADER (vaderSentiment)
-Gensim (LDA)
-Flask (inference API)
-Docker (containerization)
-Google AppEngine (website hosting)
-Google Cloud Run (inference service)
-Google Cloud Storage (dataset storage)
-Zembra API (data collection)
+- Python, Pandas, Matplotlib, Seaborn
+- VADER (vaderSentiment)
+- Gensim (LDA)
+- Flask (inference API)
+- Docker (containerization)
+- Google AppEngine (website hosting)
+- Google Cloud Run (inference service)
+- Google Cloud Storage (dataset storage)
+- Zembra API (data collection)
 
 ## Contributors
 [Jaafar Ben Khaled](https://github.com/JaafarBK02)
