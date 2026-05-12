@@ -1,15 +1,12 @@
 # Uncovering Trust and Transparency Issues in Auto Repair
 
 ## Overview
-This project analyzes customer reviews from Bay Area auto repair shops to identify 
-recurring patterns of distrust, overcharging, and poor communication. Using NLP 
-and machine learning, we validated that the frustration drivers feel at auto repair 
-shops is not isolated — it is a systemic, measurable, and predictable problem.
+This project analyzes customer reviews from Bay Area auto repair shops to identify recurring patterns of distrust, overcharging, and poor communication. 
+Using NLP and machine learning, we validated that the frustration drivers feel at auto repair shops is not isolated—it is a systemic, measurable, and predictable problem.
 
 This research was conducted as part of CS163 at San Jose State University and 
 serves as the data foundation for Whipify, a transparency tool for auto repair 
-that was selected as a finalist in the Silicon Valley Innovation Challenge 
-(200+ startups).
+that was selected as a finalist in the Silicon Valley Innovation Challenge.
 
 ## Research Questions & Hypotheses
 1. Pricing transparency is a primary driver of negative sentiment
