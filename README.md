@@ -80,6 +80,17 @@ Gensim (LDA)
 Zembra API
 Google Colab and Google Drive
 
+
+
+## Links
+
+Project Website: https://auto-repair-cs163.wl.r.appspot.com/
+
+ML Inference API: https://auto-repair-inference-590605587424.us-west2.run.app/
+
+Whipify: https://whipify.it.com
+
+
 ## Contributors
 [Jaafar Ben Khaled](https://github.com/JaafarBK02)
 [fnuhasham](https://github.com/fnuhasham)
