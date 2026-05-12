@@ -35,14 +35,14 @@ Lower-rated reviews are longer
 - Dissatisfied customers tend to leave more detailed feedback
 
 ## Dataset
-Source: Yelp reviews collected via Zembra API
-Size: 11,022 reviews from 32 Bay Area auto repair shops
-Cities: San Francisco, Oakland, San Jose, Berkeley, Fremont, Hayward, 
-Santa Clara, Sunnyvale, Daly City
-Negative reviews (1-2 stars): 656 (6%)
-Features: star rating, review text, review length, VADER sentiment score
-Cloud Storage: dataset is stored in Google Cloud Storage and consumed by the 
-inference service and website at runtime
+- Source: Yelp reviews (collected via Zembra API)
+- Size: 11,022 reviews
+- Shops: 32 auto repair businesses
+- Cities:
+  San Francisco, Oakland, San Jose, Berkeley, Fremont, Hayward, Santa Clara, Sunnyvale, Daly City
+- Negative Reviews (1–2 stars): 656 (6%)
+- Features: star rating, review text, review length, VADER sentiment score
+- Cloud Storage: The dataset is stored in Google Cloud Storage and accessed dynamically by the project website OR the ML inference service
 
 ## Project Structure
 
