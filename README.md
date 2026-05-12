@@ -55,8 +55,8 @@ reviews_clean.csv             Cleaned reviews dataset
 negative_reviews_with_topics.csv    Negative reviews with LDA topic labels
 Final Proposal.pdf            Original project proposal
 Preliminary Results.pdf       Preliminary results report
-```   Preliminary results report
-""
+```
+
 
 
 ## Pipeline
